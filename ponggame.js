@@ -15,11 +15,6 @@ async function init(){
 
     computer.ai_plays = true;
 
-     if(computer.ai_plays){
-        document.getElementById("playing").innerHTML = "Playing: AI";
-    }else{
-        document.getElementById("playing").innerHTML = "Playing: Computer";
-    }
 
     // start a game
     animate(step);
@@ -370,11 +365,11 @@ AI.prototype.new_turn = function(){
     console.log('new turn: ' + this.turn);
 
     //computer.ai_plays = !computer.ai_plays;
-    if(computer.ai_plays){
-        document.getElementById("playing").innerHTML = "Playing: AI";
-    }else{
-        document.getElementById("playing").innerHTML = "Playing: Computer";
-    }
+    // if(computer.ai_plays){
+    //     document.getElementById("playing").innerHTML = "Playing: AI";
+    // }else{
+    //     document.getElementById("playing").innerHTML = "Playing: Computer";
+    // }
 
     // after x turn
     if(number_sets > 4){
@@ -414,7 +409,7 @@ AI.prototype.train = function(){
 
     // first we have to balance a data
     console.log('balancing');
-    document.getElementById("playing").innerHTML = "Training";
+    //document.getElementById("playing").innerHTML = "Training";
 
     // trim data and find minimum number of training records in data for all 3 embeddings
     if(this.keep_trainig_records){
@@ -504,9 +499,50 @@ document.body.appendChild(canvas);
 // init whole code
 init();
 
+var left = false;
+var right = false;
+
+function arrowL(){
+    if (right){
+        delete keysDown[39];
+        right = false;
+    }
+    if (!left){
+        keysDown[37] = true;
+        left = true;
+    } else {
+        delete keysDown[37];
+        left = false;
+    }
+}
+
+function pause(){
+    if (right){
+        delete keysDown[39];
+        right = false;
+    }
+    if (left){
+        delete keysDown[37];
+        left = false;
+    }
+}
+function arrowR(){
+    if (left){
+        delete keysDown[37];
+        left = false;
+    }
+    if (!right){
+        keysDown[39] = true;
+        right = true;
+    } else {
+        delete keysDown[39];
+        right = false;
+    }
+}
 // arrow keypress events
 window.addEventListener("keydown", function (event) {
     keysDown[event.keyCode] = true;
+    console.log(event.keyCode)
 });
 window.addEventListener("keyup", function (event) {
     delete keysDown[event.keyCode];
