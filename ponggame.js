@@ -394,11 +394,11 @@ AI.prototype.reset = function(){
     //this.turn = 0;
 
 
-    if(computer.ai_plays){
-        document.getElementById("playing").innerHTML = "Playing: AI";
-    }else{
-        document.getElementById("playing").innerHTML = "Playing: Computer";
-    }
+    // if(computer.ai_plays){
+    //     document.getElementById("playing").innerHTML = "Playing: AI";
+    // }else{
+    //     document.getElementById("playing").innerHTML = "Playing: Computer";
+    // }
 
     console.log('reset')
     console.log('emtying batch')
@@ -445,7 +445,7 @@ AI.prototype.train = function(){
     }
     //console.log(data_xs);
     //console.log(data_ys);
-    document.createElement("playing").innerHTML = "Training: "+data_xs.length+" records";
+    //document.createElement("playing").innerHTML = "Training: "+data_xs.length+" records";
 
     console.log('training-1');
 
@@ -542,7 +542,7 @@ function arrowR(){
 // arrow keypress events
 window.addEventListener("keydown", function (event) {
     keysDown[event.keyCode] = true;
-    console.log(event.keyCode)
+    //console.log(event.keyCode)
 });
 window.addEventListener("keyup", function (event) {
     delete keysDown[event.keyCode];
