@@ -1,6 +1,3 @@
-// the actual PONG javascript code is from: https://robots.thoughtbot.com/pong-clone-in-javascript
-// We have only modified it to include some javascript AI!
-
 // init function
 async function init(){
 
